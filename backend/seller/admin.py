@@ -5,7 +5,7 @@ from .models import SellerModel, CategoryModel, SubCategoryModel
 class SubCategoryInline(admin.TabularInline):
     model = SubCategoryModel
     extra = 1
-    fields = ['name', 'image', 'category']
+    fields = ['seller', 'name', 'image', 'category']
     autocomplete_fields = ['category']
 
 
@@ -27,6 +27,7 @@ class SellerAdmin(admin.ModelAdmin):
 
 @admin.register(CategoryModel)
 class CategoryAdmin(admin.ModelAdmin):
+    fields = ['name', 'image', 'seller']
     list_display = ['id', 'name', 'seller']
     inlines = [SubCategoryInline]
     search_fields = ['name']

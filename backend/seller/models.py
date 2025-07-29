@@ -13,7 +13,7 @@ class SellerModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.store_name} ({self.user.email})"
+        return f"{self.store_name} ({self.name})"
 
 class CategoryModel(models.Model):
     seller = models.ForeignKey(SellerModel, on_delete=models.CASCADE, related_name='categories')
